@@ -63,6 +63,7 @@ export function Holder() {
     })
   };
 
+  document.title = 'Holder'
   return (
     <>
         <b>Holder Page</b>

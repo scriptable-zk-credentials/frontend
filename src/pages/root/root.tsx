@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { TextField, Button, Box } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import { setBackendUrl, getBackendUrl, sayHello } from "../../utils"
@@ -18,6 +18,8 @@ export function Root() {
             setStatus("❌")
         }
     }
+
+    useEffect(() => { testBackendUrl() }, [])
 
     return(
         <Box

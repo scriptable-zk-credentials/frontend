@@ -27,6 +27,7 @@ export function Issuer() {
         }
     }
 
+    document.title = 'Issuer'
     return(
         <>
             <b>Issuer Page</b>
