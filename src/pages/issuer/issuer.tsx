@@ -6,7 +6,7 @@ import { Tabs, Tab, Box } from '@mui/material'
 export function Issuer() {
     const [activeTab, setActiveTab] = useState<string>("holders")
 
-    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
         setActiveTab(newValue);
     };
 
