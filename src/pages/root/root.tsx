@@ -45,6 +45,12 @@ export function Root() {
             >
                 Go to Verifier page
             </Button>
+            <Button
+                variant="contained"
+                onClick={() => { navigate("/holder") }}
+            >
+                Go to Holder page
+            </Button>
         </Box>
     )
 }

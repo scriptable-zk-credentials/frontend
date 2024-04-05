@@ -48,7 +48,7 @@ export function CredentialsTab() {
             holder_id: parseInt(activeHolderID),
             remove: toDelete.split(",").filter(x => x != "").map(x => parseInt(x)),
             add: [],
-        }]).then()
+        }]).then(() => {fetchHolderCredentials(activeHolderID)})
     }
     const applyAddCredential = () => {
         const [schema_id, details] = toAdd.split(",")
@@ -56,7 +56,7 @@ export function CredentialsTab() {
             holder_id: parseInt(activeHolderID),
             remove: [],
             add: [[parseInt(schema_id), details]]
-        }]).then()
+        }]).then(() => {fetchHolderCredentials(activeHolderID)})
     }
 
 

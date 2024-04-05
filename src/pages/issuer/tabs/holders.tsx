@@ -34,11 +34,11 @@ export function HoldersTab() {
     }
 
     const applyDeleteHolders = () => {
-        modifyHolders(toDelete.split(",").filter(x => x != "").map(x => parseInt(x)), []).then()
+        modifyHolders(toDelete.split(",").filter(x => x != "").map(x => parseInt(x)), []).then(() => {fetchData()})
     }
     const applyAddHolder = () => {
         const [first_name, last_name] = toAdd.split(",")
-        modifyHolders([], [{ first_name, last_name }]).then()
+        modifyHolders([], [{ first_name, last_name }]).then(() => {fetchData()})
     }
 
     useEffect(() => { fetchData() }, [])

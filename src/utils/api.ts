@@ -65,3 +65,20 @@ export async function syncInstances(): Promise<boolean> {
         },
     })).json()
 }
+
+export async function generateProof(credentials: string[], lang: string, script: string): Promise<number> {
+    const response: {task_id: number, active_task: number} = await (await fetch(`${getBackendUrl()}/holder/proof/generate`, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ credentials, lang, script })
+    })).json()
+
+    return response["task_id"]
+}
+
+export async function getProofStatus(taskId: number): Promise<object> {
+    return (await fetch(`${getBackendUrl()}/holder/proof/status/${taskId}`)).json()
+}

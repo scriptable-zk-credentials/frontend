@@ -46,14 +46,14 @@ export function InstancesTab() {
             parseInt(credentialID),
             toDelete.split(",").filter(x => x != "").map(x => parseInt(x)),
             0
-        ).then()
+        ).then(() => {fetchInstances(credentialID)})
     }
     const applyAddInstances = () => {
         modifyCredentialInstances(
             parseInt(credentialID),
             [],
             parseInt(toAdd)
-        ).then()
+        ).then(() => {fetchInstances(credentialID)})
     }
 
     useEffect(() => { fetchInstances(credentialID) }, [credentialID])

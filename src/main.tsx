@@ -4,6 +4,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom"
 import { Root } from "./pages/root"
 import { Issuer } from './pages/issuer'
 import { Verifier } from './pages/verifier'
+import { Holder } from './pages/holder'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -20,6 +21,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       {
         path: "/verifier",
         element: <Verifier />,
+      },
+      {
+        path: "/holder",
+        element: <Holder />,
       }
     ])} />
   </React.StrictMode>,
