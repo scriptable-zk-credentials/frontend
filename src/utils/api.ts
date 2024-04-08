@@ -26,6 +26,17 @@ export async function getSchemas(): Promise<string[]> {
     return result.filter(x => x.slice(0, 4) != "test")
 }
 
+export async function addSchema(schema: string): Promise<boolean> {
+    return (await fetch(`${getBackendUrl()}/issuer/schemas`, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ schema, })
+    })).json()
+}
+
 export async function getCredentials(userId: number): Promise<CredentialInfo[]> {
     return (await fetch(`${getBackendUrl()}/issuer/credentials/${userId}`)).json()
 }
