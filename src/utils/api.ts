@@ -93,3 +93,29 @@ export async function generateProof(credentials: string[], lang: string, script:
 export async function getProofStatus(taskId: number): Promise<object> {
     return (await fetch(`${getBackendUrl()}/holder/proof/status/${taskId}`)).json()
 }
+
+export async function getPresentations(): Promise<object[]> {
+    return (await fetch(`${getBackendUrl()}/verifier/presentations`)).json()
+}
+
+export async function modifyPresentations(approve: number[], deny: number[]): Promise<boolean> {
+    return (await fetch(`${getBackendUrl()}/verifier/presentations`, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ approve, deny })
+    })).json()
+}
+
+export async function checkPresentation(cred_issuers: string[], base64_receipt: string): Promise<object> {
+    return (await fetch(`${getBackendUrl()}/verifier/check`, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ cred_issuers, base64_receipt, })
+    })).json()
+}
