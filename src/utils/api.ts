@@ -94,7 +94,16 @@ export async function getProofStatus(taskId: number): Promise<object> {
     return (await fetch(`${getBackendUrl()}/holder/proof/status/${taskId}`)).json()
 }
 
-export async function getPresentations(): Promise<object[]> {
+type Request = {
+    status: string,
+    cred_hashes: string[],
+    cred_schemas: string[],
+    lang: string,
+    script: string,
+    result: boolean,
+};
+
+export async function getPresentations(): Promise<Request[]> {
     return (await fetch(`${getBackendUrl()}/verifier/presentations`)).json()
 }
 

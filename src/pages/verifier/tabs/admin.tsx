@@ -22,11 +22,12 @@ export function AdminsTab() {
 
     const fetchData = async () => {
         const res = await getPresentations()
-        setPresentations(res.map((x, index) => {
-            x["id"] = index;
-            x["cred_schemas"] = x["cred_schemas"].map((y: string) => atob(y));
-            return x;
-         }));
+        setPresentations(res.map((x, index) => ({
+            ...x,
+            id: index,
+            cred_schemas: x["cred_schemas"].map((y: string) => atob(y)),
+            
+         })));
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
